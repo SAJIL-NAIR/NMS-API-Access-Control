@@ -1,0 +1,48 @@
+{
+  "realm": "nms-realm",
+  "enabled": true,
+  "sslRequired": "NONE",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": false,
+  "rememberMe": false,
+
+  "defaultSignatureAlgorithm": "RS256",
+
+  "clients": [
+    {
+      "clientId": "nms-client",
+      "name": "NMS Gateway Client",
+      "description": "Client used to obtain OAuth2 access tokens for the NMS API",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "fullScopeAllowed": true,
+      "redirectUris": [],
+      "webOrigins": []
+    }
+  ],
+
+  "users": [
+    {
+      "username": "nmsuser",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "NMS",
+      "lastName": "User",
+      "email": "nmsuser@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "NMS@12345",
+          "temporary": false
+        }
+      ]
+    }
+  ]
+}
