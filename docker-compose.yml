@@ -41,7 +41,10 @@ services:
 
 
   kong:
-    image: kong:3.9.3
+    build:
+      context: ./kong
+
+    image: secure-nms-kong:3.9.3
 
     container_name: kong
 
@@ -53,7 +56,9 @@ services:
 
     environment:
       KONG_DATABASE: "off"
-      KONG_DECLARATIVE_CONFIG: /kong/declarative/kong.yml
+      KONG_DECLARATIVE_CONFIG: /tmp/kong.yml
+      KEYCLOAK_INTERNAL_URL: http://keycloak:8080
+      KEYCLOAK_REALM: ${KEYCLOAK_REALM:-nms-realm}
 
       KONG_PROXY_ACCESS_LOG: /dev/stdout
       KONG_PROXY_ERROR_LOG: /dev/stderr
@@ -68,7 +73,7 @@ services:
       - "8001:8001"
 
     volumes:
-      - ./kong/kong.yml:/kong/declarative/kong.yml:ro
+      - ./kong/kong.yml:/kong/config/kong.yml:ro
 
     networks:
       - nms-network

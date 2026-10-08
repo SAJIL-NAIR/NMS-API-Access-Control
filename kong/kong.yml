@@ -28,15 +28,7 @@ consumers:
         secret: "demo-secret-not-used-for-rs256"
 
         rsa_public_key: |
-          -----BEGIN PUBLIC KEY-----
-          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAojbcY0bwsF+KEH4kweq2
-          s3NLotlpv+WOTiA+Gl8wI24bWeHoLyIH7h3l7N6oe1oRdDRqlHqbXJmithPU2CTr
-          SS5Be3qypddVu1IQOZsinHSZmrKM7LDqoAQdfD+2A0R+nWhr4617buMx4n8bsOAp
-          kRrUq9VgkYiJtrnfsN2AxJ+7VMdGyQ2sT8euHSo2O+uc0Q3kdsJnohbbfE+qZZ2N
-          2eJOMzIaRdQ6ybq0i1hyuyNrtOQBmVIa+hh8/FcXnPAfDK3USpIsvgVuhYMVRFUl
-          WwMCqcj/wR86bsrlfFp8fLMrvbQI2A8/HEctJXVOIiV0wriz7Ov51uMRqwilYqGe
-          BQIDAQAB
-          -----END PUBLIC KEY-----
+          __KEYCLOAK_RSA_PUBLIC_KEY__
 
 
 plugins:
@@ -52,7 +44,6 @@ plugins:
 
       claims_to_verify:
         - exp
-        - nbf
 
 
   - name: rate-limiting
